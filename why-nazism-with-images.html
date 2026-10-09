@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Why Nazism Was Wrong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEF0F2; --panel:#FFFFFF; --ink:#14202B; --muted:#52606D; --line:#D5DAE0; --accent:#9B1C2E; --dot:#C9CFD6;
+  --serif:"IBM Plex Serif",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0F161D;--panel:#17212B;--ink:#E6EAEE;--muted:#9AA7B3;--line:#26333F;--accent:#E0566B;--dot:#2C3946}
+}
+:root[data-theme="dark"]{--bg:#0F161D;--panel:#17212B;--ink:#E6EAEE;--muted:#9AA7B3;--line:#26333F;--accent:#E0566B;--dot:#2C3946}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.65}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.25rem}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;margin:0}
+p{margin:0 0 1rem;max-width:62ch}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+/* hero */
+.hero{padding:5.5rem 0 4rem;border-bottom:1px solid var(--line)}
+.hero .rule{display:grid;grid-template-columns:6px 1fr;gap:1.75rem}
+.hero .bar{background:var(--accent);border-radius:2px}
+.hero h1{font-size:clamp(2.4rem,7vw,5rem);letter-spacing:-.02em;max-width:16ch}
+.hero p.lead{font-size:1.25rem;color:var(--muted);margin-top:1.5rem;max-width:52ch}
+
+/* sections */
+section{padding:4.5rem 0;border-bottom:1px solid var(--line)}
+section>.wrap>h2{font-size:clamp(1.7rem,4vw,2.6rem);margin-bottom:1rem;max-width:20ch}
+.intro{color:var(--muted);margin-bottom:2.25rem}
+
+/* dot grid */
+.dots{display:grid;grid-template-columns:repeat(20,1fr);gap:clamp(4px,1vw,10px);max-width:36rem;margin:2rem 0 1rem}
+.dots i{aspect-ratio:1;border-radius:50%;background:var(--dot);display:block}
+.dots i.on{background:var(--accent)}
+.legend{font-size:.95rem;color:var(--muted)}
+.legend b{color:var(--ink)}
+.counts{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem;margin-top:2.5rem}
+.count{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:1.25rem 1.4rem}
+.count strong{display:block;font-family:var(--serif);font-size:1.6rem;margin-bottom:.15rem}
+.count span{color:var(--muted);font-size:.98rem}
+
+/* ideas */
+.ideas{display:grid;gap:.75rem}
+details{background:var(--panel);border:1px solid var(--line);border-radius:6px}
+summary{cursor:pointer;list-style:none;padding:1.15rem 1.4rem;font-family:var(--serif);font-weight:600;font-size:1.2rem;display:flex;justify-content:space-between;gap:1rem;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--sans);font-size:1.5rem;color:var(--accent);transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details[open]{border-color:var(--accent)}
+details .body{padding:0 1.4rem 1.2rem;color:var(--muted)}
+details .body p{max-width:70ch}
+
+/* timeline */
+.tl{list-style:none;margin:0;padding:0;border-left:2px solid var(--line);margin-left:.4rem}
+.tl li{position:relative;padding:0 0 1.9rem 1.75rem}
+.tl li::before{content:"";position:absolute;left:-7px;top:.55rem;width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.tl time{font-family:var(--serif);font-weight:600;font-size:1.05rem;display:block}
+.tl p{color:var(--muted);margin:.15rem 0 0}
+
+/* warning signs */
+.signs{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1rem}
+.sign{border-top:3px solid var(--accent);padding:1rem 0 0}
+.sign h3{font-size:1.15rem;margin-bottom:.4rem}
+.sign p{color:var(--muted);font-size:1rem}
+
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));gap:1rem;align-items:start}
+.gallery figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.gallery img{display:block;width:100%;height:auto;background:var(--line)}
+.gallery figcaption{padding:.9rem 1.1rem 1.1rem;color:var(--muted);font-size:.95rem;line-height:1.5}
+footer{padding:3.5rem 0 4rem;color:var(--muted);font-size:.98rem}
+footer .wrap{display:grid;gap:.6rem}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+@media (max-width:560px){.hero{padding:3.5rem 0 3rem}.hero .rule{gap:1rem}section{padding:3.25rem 0}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="rule">
+      <div class="bar" aria-hidden="true"></div>
+      <div>
+        <h1>Nazism was built on hatred, and it ended in genocide.</h1>
+        <p class="lead">Nazi Germany murdered millions of people because of who they were, started a war that killed tens of millions, and destroyed the freedoms of its own citizens first. This page explains why it was wrong.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section aria-labelledby="h-toll">
+  <div class="wrap">
+    <h2 id="h-toll">The human cost</h2>
+    <p class="intro">The Holocaust was the systematic, state-sponsored murder of about six million Jewish men, women and children. Each dot below stands for 100,000 people.</p>
+    <div class="dots" id="dots" role="img" aria-label="60 dots, each representing 100,000 people, together representing six million Jewish victims of the Holocaust"></div>
+    <p class="legend"><b>60 dots</b> = about 6 million Jewish people murdered between 1941 and 1945. Two out of every three Jews in Europe were killed.</p>
+
+    <div class="counts">
+      <div class="count"><strong>70–85 million</strong><span>people died in World War II, which Nazi Germany started in 1939.</span></div>
+      <div class="count"><strong>Millions more</strong><span>were persecuted or killed: Roma and Sinti, Poles and other Slavic civilians, Soviet prisoners of war, disabled people, political opponents, Jehovah's Witnesses and gay men.</span></div>
+      <div class="count"><strong>Estimates vary</strong><span>Historians still work to establish exact numbers. The scale is not in doubt.</span></div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="h-img"><div class="wrap"><h2 id="h-img">The regime in pictures</h2><p class="intro">These images are shown for historical education. They document a regime responsible for genocide.</p><div class="gallery"><figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_Germany_%281935%E2%80%931945%29.svg/250px-Flag_of_Germany_%281935%E2%80%931945%29.svg.png" alt="Flag of Nazi Germany, 1935 to 1945" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.style.display='none'"><figcaption>The flag of Nazi Germany (1935–1945). It flew over a state that persecuted and murdered millions.</figcaption></figure><figure><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwFBetWZg6em33r4V9bRjdNyH0MzJJp8qYVh0pDPLvqA&s=10" alt="Historical photograph of Adolf Hitler" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.style.display='none'"><figcaption>Adolf Hitler, dictator of Germany from 1933 to 1945. His policies led to the Holocaust and World War II.</figcaption></figure><figure><img src="https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2008/03/03/hitler276.jpg?width=465&dpr=1&s=none&crop=none" alt="Historical photograph from the Nazi era" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.style.display='none'"><figcaption>A photograph from the Nazi era. The regime's war brought destruction across Europe.</figcaption></figure><figure><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5h3BJ10pfqyHV0Dw13NQ-AICqx-HoLJLO-BwFMfGqm6XR9T9X-Z0PADg&s=10" alt="Another historical photograph of Adolf Hitler" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.style.display='none'"><figcaption>Hitler relied on propaganda and spectacle to build a cult of personality.</figcaption></figure></div></div></section>
+<section aria-labelledby="h-ideas">
+  <div class="wrap">
+    <h2 id="h-ideas">The ideas were false and cruel</h2>
+    <p class="intro">Open each one to see what the Nazis claimed and why it fails.</p>
+    <div class="ideas">
+      <details>
+        <summary>Racial ideology</summary>
+        <div class="body">
+          <p>Nazis claimed humanity is divided into superior and inferior "races" and that a "pure" German race was under threat. Modern genetics shows there is no scientific basis for this. People are far more alike than different, and the "racial science" of the Nazi era was pseudoscience designed to justify prejudice.</p>
+          <p>Even if it were true, nothing could justify stripping people of their rights or killing them for their ancestry.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Antisemitism and scapegoating</summary>
+        <div class="body">
+          <p>The Nazis blamed Jewish people for Germany's defeat in World War I, economic hardship and political unrest. These were lies, spread through newspapers, films, schools and speeches. Scapegoating gives frightened people a target instead of real answers, and it made violence feel acceptable.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Dictatorship and propaganda</summary>
+        <div class="body">
+          <p>Within months of taking power in 1933, the regime banned other parties, shut down independent unions, took control of the press and used the secret police to silence critics. Citizens lost the freedom to speak, vote, protest or disagree. Propaganda controlled what people heard, and fear controlled what they said.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Militarism and conquest</summary>
+        <div class="body">
+          <p>The regime believed nations should win by force and that Germany deserved "living space" taken from its neighbors. It invaded Poland in 1939 and went on to occupy much of Europe, treating the people it conquered as disposable.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Contempt for human dignity</summary>
+        <div class="body">
+          <p>Nazi policy treated people as valuable only if the state judged them useful. Disabled people were murdered in the "T4" program, and forced labor, medical experiments and mass killing followed. The idea that every person has equal worth and rights is the direct opposite of Nazism.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="h-time">
+  <div class="wrap">
+    <h2 id="h-time">How it escalated</h2>
+    <p class="intro">The genocide did not begin with camps. It grew step by step, and each step was made to seem normal.</p>
+    <ol class="tl">
+      <li><time>January 1933</time><p>Adolf Hitler is appointed chancellor of Germany.</p></li>
+      <li><time>March 1933</time><p>The Enabling Act lets the government make laws without parliament, ending democracy. The first concentration camp opens at Dachau.</p></li>
+      <li><time>April–May 1933</time><p>Jewish businesses are boycotted, Jews are pushed out of public jobs, and books by Jewish and other disfavored authors are burned.</p></li>
+      <li><time>September 1935</time><p>The Nuremberg Laws strip German Jews of citizenship and ban marriage between Jews and non-Jews.</p></li>
+      <li><time>November 1938</time><p>On Kristallnacht, mobs and police destroy synagogues and Jewish shops. About 30,000 Jewish men are sent to camps.</p></li>
+      <li><time>September 1939</time><p>Germany invades Poland. World War II begins.</p></li>
+      <li><time>1941</time><p>Mass shootings of Jewish communities begin in the occupied Soviet Union. Killing centers start operating.</p></li>
+      <li><time>January 1942</time><p>At the Wannsee Conference, officials coordinate the plan to murder Europe's Jews.</p></li>
+      <li><time>May 1945</time><p>Germany surrenders. Allied soldiers liberate the camps and find the evidence.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section aria-labelledby="h-learn">
+  <div class="wrap">
+    <h2 id="h-learn">Warning signs worth remembering</h2>
+    <p class="intro">History does not repeat exactly, but these patterns appeared before the worst happened, and they are worth recognizing anywhere.</p>
+    <div class="signs">
+      <div class="sign"><h3>Dehumanizing a group</h3><p>Describing people as vermin, disease or threats makes cruelty easier to accept.</p></div>
+      <div class="sign"><h3>Blaming one group for everything</h3><p>Simple scapegoats replace honest answers to hard problems.</p></div>
+      <div class="sign"><h3>Attacking a free press and courts</h3><p>Regimes silence the institutions that could hold them to account.</p></div>
+      <div class="sign"><h3>Silence from bystanders</h3><p>Persecution grows when most people look away. Speaking up matters early.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Survivors, historians and museums have preserved the evidence so these events are never denied or forgotten. To learn more, visit the <a href="https://www.ushmm.org" rel="noopener">United States Holocaust Memorial Museum</a> or <a href="https://www.yadvashem.org" rel="noopener">Yad Vashem</a>.</p>
+    <p>Figures are widely cited historical estimates and may vary by source.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var el=document.getElementById('dots');
+  for(var i=0;i<60;i++){var d=document.createElement('i');d.className='on';el.appendChild(d);}
+})();
+</script>
+</body>
+</html>
